@@ -13,9 +13,9 @@ def selection_sort( arr ):
         smallest_index = cur_index
         # find next smallest element
         for j in range(cur_index, len(arr)): #why doesn't it work if len - 1 
-            print(f'is {arr[j]} < {arr[smallest_index]}')
+            print(f'is {arr[j]} > {arr[smallest_index]}')
 
-            if arr[j] < arr[smallest_index]:
+            if  arr[smallest_index] > arr[j]: #here we are checking the items in the 
                 smallest_index = j
                 
      #TO DO: swap
@@ -31,9 +31,15 @@ print(sortlist)
 
 # TO-DO:  implement the Bubble Sort function below
 def bubble_sort( arr ):
-
+    for i in range(0, len(arr)):
+        #get the current index and compare if with the num next to it
+        for j in range(0, len(arr) - i - 1):
+             if arr[j] > arr[j + 1]:
+                 #print(f'is {arr[j]} > {arr[j + 1]}')
+                 arr[j], arr[j+1] = arr[j+1], arr[j]
     return arr
 
+print(bubble_sort([32, 1, 87, 44]))
 
 # STRETCH: implement the Count Sort function below
 def count_sort( arr, maximum=-1 ):
